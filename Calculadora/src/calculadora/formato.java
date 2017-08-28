@@ -258,6 +258,10 @@ public class formato extends javax.swing.JFrame {
         dato = Float.valueOf(display.getText());
         miCalculador2.operando1 = dato;
         display.setText("");
+        
+        dato = miCalculador2.resultado;
+
+        display.setText(String.valueOf(dato));
 
 
     }//GEN-LAST:event_senoMouseClicked
@@ -269,6 +273,9 @@ float dato;
         miCalculador2.operando1 = dato;
         display.setText("");
 
+         dato = miCalculador2.resultado;
+
+        display.setText(String.valueOf(dato));
 
       
     }//GEN-LAST:event_cosenoMouseClicked
@@ -279,6 +286,10 @@ float dato;
         dato = Float.valueOf(display.getText());
         miCalculador2.operando1 = dato;
         display.setText("");
+        
+         dato = miCalculador2.resultado;
+
+        display.setText(String.valueOf(dato));
 
 
      
