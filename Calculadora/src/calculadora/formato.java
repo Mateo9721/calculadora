@@ -5,15 +5,13 @@
  */
 package calculadora;
 
-
 public class formato extends javax.swing.JFrame {
 
     int operador;
-            
-    Calculadora miCalculador=new  Calculadora();
-    
-    
-    
+
+    Calculadora miCalculador = new Calculadora();
+
+    Trigonometrica miCalculador2 = new Trigonometrica();
 
     public formato() {
         initComponents();
@@ -34,6 +32,9 @@ public class formato extends javax.swing.JFrame {
         restar = new javax.swing.JButton();
         multiplicar = new javax.swing.JButton();
         dividir = new javax.swing.JButton();
+        seno = new javax.swing.JButton();
+        coseno = new javax.swing.JButton();
+        tangente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,43 +88,79 @@ public class formato extends javax.swing.JFrame {
             }
         });
 
+        seno.setText("Sen()");
+        seno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                senoMouseClicked(evt);
+            }
+        });
+
+        coseno.setText("Cos()");
+        coseno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cosenoMouseClicked(evt);
+            }
+        });
+
+        tangente.setText("Tan()");
+        tangente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tangenteMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(multiplicar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sumar, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                     .addComponent(restar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(multiplicar, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(dividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dividir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 8, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(coseno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(seno, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tangente, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sumar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(multiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(restar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(79, 79, 79))
+                    .addComponent(sumar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tangente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(restar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(seno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(multiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(coseno, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -134,47 +171,42 @@ public class formato extends javax.swing.JFrame {
     }//GEN-LAST:event_sumarActionPerformed
 
     private void sumarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumarMouseClicked
-   
-       float dato;
-       dato=Float.valueOf(display.getText());
-        miCalculador.operando1=dato;
-        display.setText(""); 
+
+        float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador.operando1 = dato;
+        display.setText("");
         //Cambiar el atributo de operacion
-        operador=0;
-        
+        operador = 0;
+
     }//GEN-LAST:event_sumarMouseClicked
 
     private void igualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseClicked
 
         float dato;
-        dato=Float.valueOf(display.getText());
-        miCalculador.operando2=dato;
-        
-       switch(operador){
-           
-           case 0:
-               miCalculador.sumar();
-               break;
-           case 1:
-               miCalculador.restar();
-               break;
-           case 2:
-               miCalculador.multiplicar();
-               break;
-           case 3:
-               miCalculador.dividir();
-               break;
-               
-             
-       }
-                
-        
-        
-        
-        dato=miCalculador.resultado;
-        
+        dato = Float.valueOf(display.getText());
+        miCalculador.operando2 = dato;
+
+        switch (operador) {
+
+            case 0:
+                miCalculador.sumar();
+                break;
+            case 1:
+                miCalculador.restar();
+                break;
+            case 2:
+                miCalculador.multiplicar();
+                break;
+            case 3:
+                miCalculador.dividir();
+                break;
+
+        }
+
+        dato = miCalculador.resultado;
+
         display.setText(String.valueOf(dato));
-        
 
         // TODO add your handling code here:
     }//GEN-LAST:event_igualMouseClicked
@@ -189,41 +221,68 @@ public class formato extends javax.swing.JFrame {
 
     private void restarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restarMouseClicked
 
- float dato;
-       dato=Float.valueOf(display.getText());
-        miCalculador.operando1=dato;
-        display.setText(""); 
-        operador=1;
+        float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador.operando1 = dato;
+        display.setText("");
+        operador = 1;
 
 
-
-       
     }//GEN-LAST:event_restarMouseClicked
 
     private void multiplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplicarMouseClicked
 
         float dato;
-       dato=Float.valueOf(display.getText());
-        miCalculador.operando1=dato;
-        display.setText(""); 
-        operador=2;
+        dato = Float.valueOf(display.getText());
+        miCalculador.operando1 = dato;
+        display.setText("");
+        operador = 2;
 
-   
+
     }//GEN-LAST:event_multiplicarMouseClicked
 
     private void dividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseClicked
 
-float dato;
-       dato=Float.valueOf(display.getText());
-        miCalculador.operando1=dato;
-        display.setText(""); 
-        operador=3;
+        float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador.operando1 = dato;
+        display.setText("");
+        operador = 3;
 
 
-
-
-       
     }//GEN-LAST:event_dividirMouseClicked
+
+    private void senoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_senoMouseClicked
+
+        float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador2.operando1 = dato;
+        display.setText("");
+
+
+    }//GEN-LAST:event_senoMouseClicked
+
+    private void cosenoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cosenoMouseClicked
+
+float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador2.operando1 = dato;
+        display.setText("");
+
+
+      
+    }//GEN-LAST:event_cosenoMouseClicked
+
+    private void tangenteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tangenteMouseClicked
+
+float dato;
+        dato = Float.valueOf(display.getText());
+        miCalculador2.operando1 = dato;
+        display.setText("");
+
+
+     
+    }//GEN-LAST:event_tangenteMouseClicked
 
     /**
      * @param args the command line arguments
@@ -261,11 +320,14 @@ float dato;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton coseno;
     private javax.swing.JTextField display;
     private javax.swing.JButton dividir;
     private javax.swing.JButton igual;
     private javax.swing.JButton multiplicar;
     private javax.swing.JButton restar;
+    private javax.swing.JButton seno;
     private javax.swing.JButton sumar;
+    private javax.swing.JButton tangente;
     // End of variables declaration//GEN-END:variables
 }
