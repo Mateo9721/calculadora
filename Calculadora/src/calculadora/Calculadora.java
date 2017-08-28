@@ -36,7 +36,7 @@ float resultado;
         resultado=operando1/operando2;
        
     
-
+    }
 }
 
 
